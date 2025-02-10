@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feliz Cumpleaños</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            color: #333;
+            text-align: center;
+            padding: 50px;
+            overflow: hidden;
+        }
+        .card {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            max-width: 400px;
+            margin: auto;
+        }
+        h1 {
+            color: #ff6f61;
+        }
+        p {
+            font-size: 18px;
+        }
+        .button {
+            background-color: #ff6f61;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            display: inline-block;
+            margin-top: 20px;
+            cursor: pointer;
+        }
+        .button:hover {
+            background-color: #ff4a3a;
+        }
+        #message {
+            display: none;
+            font-size: 24px;
+            color: #ff6f61;
+            margin-top: 20px;
+        }
+        .confetti {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background-color: #ff6f61;
+            opacity: 0.8;
+            pointer-events: none;
+            animation: fall 1.5s infinite;
+        }
+        @keyframes fall {
+            0% {
+                transform: translateY(0);
+            }
+            100% {
+                transform: translateY(100vh);
+            }
+        }
+        .gif {
+            width: 100px; /* Establece un ancho fijo */
+            height: auto; /* Mantiene la proporción del GIF */
+            margin-top: 20px; /* Espacio entre el texto y el GIF */
+        }
+    </style>
+</head>
+<body>
+
+    <div class="card">
+        <h1>¡Feliz Cumpleaños, Amor!</h1>
+        <p>En este dia tan especial para ti,primero que todo Feliz cumpleaños mi amor,Te amo mucho y te deseo muchos años mas de vida y que los podamos pasar juntos,Me siento muy feliz de tenerte a mi lado cada dia de mi vida eres lo que le da luz y alegria a mi vida cada momento que paso contigo aunque sean 3 minutos me hace feliz porque estoy contigo te has vuelto muy importante para mii❤,Feliz cumpleañoss Te amoo❤.</p>
+        
+        <!-- Asegúrate de que el GIF esté en la misma carpeta que este archivo HTML -->
+        <img src="https://media.tenor.com/wqsvVXEKGWoAAAAi/galllllp.gif" alt="Feliz Cumpleaños" class="gif">
+        
+        <button class="button" onclick="celebrate()">¡Celebremos juntos!</button>
+        <div id="message">Te amo</div>
+        
+        <!-- Asegúrate de que el archivo de audio esté en la misma carpeta que este archivo HTML -->
+        <audio id="birthdaySong" src="Lady_Gaga,_Bruno_Mars_-_Die_With_A_Smile_(Sub._Espanol_Lyrics)_video_oficial_[_YouConvert.net_].mp3"></audio>
+    </div>
+
+    <script>
+        function celebrate() {
+            // Mostrar el mensaje
+            document.getElementById('message').style.display = 'block';
+
+            // Reproducir la canción
+            const audio = document.getElementById('birthdaySong');
+            audio.play();
+
+            // Crear confeti
+            for (let i = 0; i < 100; i++) {
+                createConfetti();
+            }
+        }
+
+        function createConfetti() {
+            const confetti = document.createElement('div');
+            confetti.className = 'confetti';
+            confetti.style.left = Math.random() * 100 + 'vw';
+            confetti.style.animationDuration = Math.random() * 1 + 1 + 's';
+            confetti.style.backgroundColor = '#' + Math.floor(Math.random() * 16777215).toString(16); // Color aleatorio
+            document.body.appendChild(confetti);
+
+            // Eliminar el confeti después de que caiga
+            setTimeout(() => {
+                confetti.remove();
+            }, 1500);
+        }
+    </script>
+
+</body>
+</html>
