@@ -7,25 +7,29 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #f9f9f9;
-            color: #333;
+            background: linear-gradient(to bottom, #001f3f, #003366);
+            color: #fff;
             text-align: center;
             padding: 50px;
             overflow: hidden;
+            position: relative;
         }
         .card {
-            background-color: #fff;
+            background-color: rgba(255, 255, 255, 0.9);
             border-radius: 10px;
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
             padding: 20px;
             max-width: 400px;
             margin: auto;
+            position: relative;
+            z-index: 1;
         }
         h1 {
             color: #ff6f61;
         }
         p {
             font-size: 18px;
+            color: #333;
         }
         .button {
             background-color: #ff6f61;
@@ -67,6 +71,23 @@
             width: 100px; /* Establece un ancho fijo */
             height: auto; /* Mantiene la proporción del GIF */
             margin-top: 20px; /* Espacio entre el texto y el GIF */
+        }
+        /* Estrellas */
+        .star {
+            position: absolute;
+            background: white;
+            border-radius: 50%;
+            opacity: 0.8;
+            animation: twinkle 1.5s infinite alternate;
+        }
+        @keyframes twinkle {
+            0% {
+                transform: scale(1);
+            }
+            100% {
+                transform: scale(1.5);
+                opacity: 0.5;
+            }
         }
     </style>
 </head>
@@ -114,6 +135,23 @@
                 confetti.remove();
             }, 1500);
         }
+
+// Crear estrellas en el fondo
+function createStars() {
+            for (let i = 0; i < 100; i++) {
+                const star = document.createElement('div');
+                star.className = 'star';
+                const size = Math.random() * 5 + 2; // Tamaño aleatorio
+                star.style.width = size + 'px';
+                star.style.height = size + 'px';
+                star.style.top = Math.random() * 100 + 'vh';
+                star.style.left = Math.random() * 100 + 'vw';
+                document.body.appendChild(star);
+            }
+        }
+
+        createStars(); // Llamar a la función para crear estrellas
+
     </script>
 
 </body>
